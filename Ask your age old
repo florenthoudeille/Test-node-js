@@ -2,7 +2,15 @@ process.stdin.resume()
 process.stdin.setEncoding('utf8')
 
 console.log('How old are you ? Or, how old will you be after your birthday this year ? ')
-process.stdin.on('data', (text) => {
-	console.log('You were born on ' + (2020 - text) + '.')
+process.stdin.on('data', yourAge => {
+	if (isNaN(yourAge)) {
+		console.log('Your age is not a number. Please write a number.');
+	} else {
+		if (yourAge > 99) {
+			console.log('You\'re too old to participate in this test.');
+		} else {
+			console.log('You were born on ' + (2020 - yourAge) + '.');
+		}
+	}
 	process.exit()
 })
