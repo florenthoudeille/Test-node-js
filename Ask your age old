@@ -8,8 +8,10 @@ process.stdin.on('data', yourAge => {
 	} else {
 		if (yourAge > 99) {
 			console.log('You\'re too old to participate in this test.');
-		} else {
+		} else if (yourAge >= 0) {
 			console.log('You were born on ' + (2020 - yourAge) + '.');
+		} else {
+			console.log('It\'s impossible ! Please write a positive number');
 		}
 	}
 	process.exit()
